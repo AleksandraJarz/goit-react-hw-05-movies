@@ -1,25 +1,28 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const AppContainer = styled.div`
+export const Container = styled.div``;
+export const Header = styled.header`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  height: 40px;
+  padding: 20px;
+  font-size: 25px;
+  -webkit-box-shadow: 0px 7px 10px 0px rgba(124, 126, 134, 0.5);
+  -moz-box-shadow: 0px 7px 10px 0px rgba(124, 126, 134, 0.5);
+  box-shadow: 0px 7px 10px 0px rgba(124, 126, 134, 0.5);
 `;
-
-export const AppWrapper = styled.div`
-  background-color: white;
-  max-width: 750px;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  padding: 50px;
-  border-radius: 15px;
+export const Navigation = styled.nav`
   display: flex;
-  gap: 10px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-  margin: auto;
+  gap: 25px;
+`;
+export const NavigationItem = styled(NavLink)`
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  &.active {
+    color: red;
+  }
 `;
 
 export const HeaderLink = styled(NavLink)`
