@@ -8,16 +8,16 @@ export default function Cast() {
   return (
     <div>
       <ul>
-        {filmData.cast?.map(actor => {
+        {filmData.cast?.map(actor => (
           <li key={actor.id}>
             <img
-              src={`https://image.tmdb.org/t/p/w200/${actor.profile_parh}`}
+              src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
               alt=""
             />
             <h3>{actor.name}</h3>
             <p>character: {actor.character}</p>
-          </li>;
-        })}
+          </li>
+        ))}
       </ul>
     </div>
   );
