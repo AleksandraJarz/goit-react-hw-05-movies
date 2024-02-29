@@ -2,11 +2,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import SharedLayout from './SharedLayout/SharedLayout';
 
-const Main = lazy(() => import('components/Main/Main'));
-const Movies = lazy(() => import('components/Movies/Movies'));
-const MovieDetails = lazy(() => import('components/MovieDetails/MovieDetails'));
-const Cast = lazy(() => import('components/Cast/Cast'));
-const Reviews = lazy(() => import('components/Reviews/Reviews'));
+const Main = lazy(() => import('./Main/Main'));
+const Movies = lazy(() => import('./Movies/Movies'));
+const MovieDetails = lazy(() => import('./MovieDetails/MovieDetails'));
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
 
 export const App = () => {
   return (
@@ -16,9 +16,10 @@ export const App = () => {
           <Route index element={<Main />} />
           <Route path="*" element={<Main />} />
           <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:movieId" element={<MovieDetails />} />
-          <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<Reviews />} />
+          <Route path="/movies/:movieId" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

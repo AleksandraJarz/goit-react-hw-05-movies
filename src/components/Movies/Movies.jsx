@@ -3,8 +3,8 @@ import { useNavigate, useSearchParams, useLocation } from 'react-router-dom';
 import useFilms from 'components/useFilms';
 import {
   FilmLink,
-  MoviesForm,
   MoviesFormInput,
+  MoviesForm,
   MoviesSearchButton,
 } from './MoviesStyled';
 
@@ -15,12 +15,12 @@ export default function Movies() {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('query');
   const { filmData } = useFilms(
-    `search/movie?query=${query}$include_adult=false&`
+    `search/movie?query=${query}&include_adult=false&`
   );
 
   const films = filmData.results;
 
-  const handleSumbit = evt => {
+  const handleSubmit = evt => {
     const form = evt.currentTarget;
     evt.preventDefault();
     navigate(`?query=${inputRef.current.value}`);
@@ -29,13 +29,13 @@ export default function Movies() {
 
   return (
     <div>
-      <MoviesForm onSubmit={handleSumbit}>
+      <MoviesForm onSubmit={handleSubmit}>
         <MoviesFormInput
           type="text"
           placeholder="Search movies"
           ref={inputRef}
         ></MoviesFormInput>
-        <MoviesSearchButton type="sumbit"> Search</MoviesSearchButton>
+        <MoviesSearchButton type="submit">Search</MoviesSearchButton>
       </MoviesForm>
       {films?.map(
         film =>
