@@ -6,7 +6,7 @@ import {
   MemberImage,
   MemberCharacter,
   MemberWrapper,
-} from './CastStyled';
+} from './CastListStyled';
 
 const CastList = ({ cast }) => {
   return (

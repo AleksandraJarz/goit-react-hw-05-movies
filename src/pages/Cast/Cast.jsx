@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCast } from 'components/useFilms';
-import CastList from 'components/Cast/Cast';
+import CastList from 'components/CastList/CastList';
 import { Warning } from './Cast.styles';
 
 const Cast = () => {
