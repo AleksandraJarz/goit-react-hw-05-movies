@@ -1,26 +1,17 @@
-import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
+import { AppWrapper, HeaderLink } from './SharedLayoutStyles';
 
-import {
-  Container,
-  Header,
-  Navigation,
-  NavigationItem,
-} from './SharedLayoutStyled';
-const SharedLayout = () => {
+export default function SharedLayout() {
   return (
-    <Container>
-      <Header>
-        <Navigation>
-          <NavigationItem to="/">Home</NavigationItem>
-          <NavigationItem to="/movies">Movies</NavigationItem>
-        </Navigation>
-      </Header>
-      <Suspense fallback={<div> Loading...</div>}>
+    <AppWrapper>
+      <header>
+        <HeaderLink to="/">Home</HeaderLink>
+        <HeaderLink to="/movies">Movies</HeaderLink>
+      </header>
+      <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
-    </Container>
+    </AppWrapper>
   );
-};
-
-export default SharedLayout;
+}
